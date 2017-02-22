@@ -6,13 +6,13 @@ executable = incommon
 all: executable
 
 clean:
-	$(RM) $(objects) $(executable)
+    $(RM) $(objects) $(executable)
 
 executable: $(objects) $(objects)
-	$(CC) $(objects) $(LDFLAGS) -o $(executable)
+    $(CC) $(objects) $(LDFLAGS) -o $(executable)
 
 $(executable): $(objects)
-	$(CC) $(objects) $(LDFLAGS) -o $(executable)
+    $(CC) $(objects) $(LDFLAGS) -o $(executable)
 
 file.o: file.c options.h sllist.h hashtbl.h file.h defines.h
 hashtbl.o: hashtbl.c hashtbl.h

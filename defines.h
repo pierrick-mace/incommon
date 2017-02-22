@@ -5,24 +5,24 @@
 #define MAX_SEPARATORS 6
 
 #define ERROR error = true; \
-			  goto error
-			  
+              goto error
+              
 #define IS_NULL(expr, ret) if(expr == NULL) { \
-								return ret; \
-							}
-					  
+                                return ret; \
+                            }
+                      
 #define IS_NULL_INST(expr, inst, ret) if(expr == NULL) { \
-										  inst; \
-										  return ret; \
-										} \
-								  
+                                          inst; \
+                                          return ret; \
+                                        } \
+                                  
 #define IF_ERROR(expr, err) if(expr == err) { \
-								return err; \
-							}
-							
+                                return err; \
+                            }
+                            
 #define IF_ERROR_INST(expr, inst, err) if(expr == err) { \
-											inst; \
-											return err; \
-									   } 
+                                            inst; \
+                                            return err; \
+                                       } 
 
 #endif

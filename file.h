@@ -7,16 +7,16 @@
 // Enumeration pour la récupération des erreurs
 enum 
 {
-	F_ERROR,
-	F_SUCCESS
+    F_ERROR,
+    F_SUCCESS
 };
 
 // Enumeration pour le type de fichier utilisé dans la fonction parse_file
 enum
 {
-	file_first,
-	file_regular,
-	file_excluded
+    file_first,
+    file_regular,
+    file_excluded
 };
 
 // Lit chaque caractère du fichier pointé par file, et construit les mots en

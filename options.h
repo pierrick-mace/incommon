@@ -17,11 +17,11 @@ enum {
 
 // Enumeration des différentes options
 enum {
-	option_exclude,
-	option_case,
-	option_separator,
-	option_sort,
-	option_help
+    option_exclude,
+    option_case,
+    option_separator,
+    option_sort,
+    option_help
 };
 
 
@@ -43,19 +43,19 @@ enum {
 // hashfun: pointeur sur la fonction de hachage 
 
 struct options {
-	bool sort;
-	int type;
-	char *separator;
-	char **files;
-	char *xfile;
-	FILE **fileptr;
-	FILE *xfileptr;
-	size_t nb_files;
-	sllist *words;
-	sllist *counters;
-	sllist *xlist;
-	hashtable *hashtbl;
-	size_t (*hashfun)(const char *);
+    bool sort;
+    int type;
+    char *separator;
+    char **files;
+    char *xfile;
+    FILE **fileptr;
+    FILE *xfileptr;
+    size_t nb_files;
+    sllist *words;
+    sllist *counters;
+    sllist *xlist;
+    hashtable *hashtbl;
+    size_t (*hashfun)(const char *);
 };
 
 // Affiche l'aide

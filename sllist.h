@@ -19,7 +19,7 @@ extern void sllist_apply(sllist *sll, void (*fun)(void *));
 //  sllist_apply2 : applique fun(x, funcontext(context, x)) à tous les éléments
 //    x de la liste associée à sll, de la tête à la queue
 extern void sllist_apply2(sllist *sll, void (*fun)(void *arg1, void *arg2),
-	void *(*funcontext)(void *context, void *arg1), void *context);
+    void *(*funcontext)(void *context, void *arg1), void *context);
 
 //  sllist_dispose : libère les ressources allouées à *ptrsll ainsi qu'à la
 //    liste associée. Donne à *ptrsll la valeur NULL
