@@ -10,7 +10,7 @@ void print_help(void) {
   printf("Options:\n");
   printf("-x FICHIER, --EXCLUDE=FICHIER Exclure les mots qui figurent dans le fichier FICHIER\n");
   printf("-c TYPE, --case=TYPE considerer les mots apres la transformation "
-  			"TYPE, de valeur upper, en majuscules, ou lower, en minuscules\n");
+			"TYPE, de valeur upper, en majuscules, ou lower, en minuscules\n");
   printf("-s MOTIF, --separators=MOTIF considerer que les caracteres decrits "
 		  "par MOTIF sont les separateurs des mots.\n\tMOTIF est une suite non vide de "
 		  "caracteres choisis parmi:\n\ta (lettres)\n\tc (controle)\n\td (chiffres)\n"
@@ -30,7 +30,7 @@ options *initialize_options(void) {
 	opt -> sort = false;
 	opt -> type = NIL;
 	opt -> separator = NULL;
-  	opt -> files = NULL;
+	opt -> files = NULL;
 	opt -> xfile = NULL;
 	opt -> fileptr = NULL;
 	opt -> xfileptr = NULL;
@@ -73,8 +73,8 @@ options *parse_arguments(int argc, char *argv[]) {
 					optvar -> type = LOWER;
 				} else {
 					fprintf(stderr, "Erreur: l'argument de l'option -c est invalide.\n\n");
-		  			free(optvar -> separator);
-		  			free(optvar);
+					free(optvar -> separator);
+					free(optvar);
 					print_help();
 				}
 				break;
@@ -109,31 +109,31 @@ options *parse_arguments(int argc, char *argv[]) {
 		size_t k = 0;
 		
 		while(optvar -> separator[k] != '\0') { 
-		  	bool is_in_array = false;
-		  	
-		  	for(size_t i = 0; i < (sizeof(separators_array) / sizeof(char)); i++) {
+			bool is_in_array = false;
+			
+			for(size_t i = 0; i < (sizeof(separators_array) / sizeof(char)); i++) {
 				if(optvar -> separator[k] == separators_array[i]) {
-			  		is_in_array = true;
+					is_in_array = true;
 				}
-		  	}	
+			}	
 		
 			if (!is_in_array) {
 				is_valid_arg = false;
-		  	}     
-		 	
-		 	k++;
+			}     
+			
+			k++;
 		}
 	} else {
 		optvar -> separator = malloc(2 * sizeof(char));
 	
 		if(optvar -> separator == NULL) {
-	  		fprintf(stderr, "Erreur lors de l'allocation de memoire.\n");
-	  		free(optvar);
-	  		exit(EXIT_FAILURE);
+			fprintf(stderr, "Erreur lors de l'allocation de memoire.\n");
+			free(optvar);
+			exit(EXIT_FAILURE);
 		}
 		
 		strcpy(optvar -> separator, "s");
-  	}
+	}
 
 	if (!is_valid_arg) {
 		printf("Erreur: l'argument de l'option -s est invalide.\n\n");
@@ -142,11 +142,11 @@ options *parse_arguments(int argc, char *argv[]) {
 		print_help();
 	}
   
-  	IS_NULL_INST((optvar -> files = calloc(argc - optind, sizeof(char *))), 
-  					free(optvar), NULL)
+	IS_NULL_INST((optvar -> files = calloc(argc - optind, sizeof(char *))), 
+					free(optvar), NULL)
   
 	IS_NULL_INST((optvar -> fileptr = calloc(argc - optind, sizeof(FILE *))), 
-  					free(optvar->files);free(optvar), NULL)
+					free(optvar->files);free(optvar), NULL)
   
 	size_t i = 0;
 
@@ -176,16 +176,16 @@ void clean_memory(options *optvar) {
 		for (size_t i = 0; i < optvar -> nb_files; i++) {
 			if(optvar -> fileptr[i] != NULL) {
 				fclose(optvar -> fileptr[i]);
-		  	}
+			}
 		}
 	
 		if (optvar -> xfileptr != NULL) {
-	  		fclose(optvar -> xfileptr);
+			fclose(optvar -> xfileptr);
 	  
-	  		if (optvar -> xlist != NULL) {
+			if (optvar -> xlist != NULL) {
 				sllist_apply(optvar -> xlist, free);
 				sllist_dispose(&(optvar -> xlist));
-	  		}
+			}
 		}
 	
 		if (optvar -> words != NULL) {
@@ -215,5 +215,5 @@ void clean_memory(options *optvar) {
 		}
 	
 		free(optvar);
-  	}
+	}
 }
