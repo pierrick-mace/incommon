@@ -53,7 +53,7 @@ struct options {
 	size_t nb_files;
 	sllist *words;
 	sllist *counters;
-  sllist *xlist;
+	sllist *xlist;
 	hashtable *hashtbl;
 	size_t (*hashfun)(const char *);
 };
